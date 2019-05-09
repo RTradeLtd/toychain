@@ -5,22 +5,23 @@ import (
 	"crypto/rand"
 	"fmt"
 
-	"gx/ipfs/QmNmJZL7FQySMtE2BQuLMuZg2EB2CLEunJJUSVSc9YnnbV/go-libp2p-host"
-	logging "gx/ipfs/QmRb5jh8z2E8hMGN2tkvs1yHynUanqnZ3UeKwgN1i9P1F8/go-log"
-	"gx/ipfs/QmSFihvoND3eDaAYRCeLgLPt62yCPgMZs1NSZmKFEtJQQw/go-libp2p-floodsub"
-	"gx/ipfs/QmZNkThpqfVXs9GNbexPrfBbXSLNYeKrE7jwFM2oqHbyqN/go-libp2p-protocol"
-	ipld "gx/ipfs/Qme5bWv7wtjUNGsK2BNGVUFPKiuxWrsqrtvYwCLRw8YFES/go-ipld-format"
+	logging "github.com/ipfs/go-log"
 
+	ipld "github.com/ipfs/go-ipld-format"
+
+	host "github.com/libp2p/go-libp2p-host"
+	protocol "github.com/libp2p/go-libp2p-protocol"
 	contract "github.com/whyrusleeping/toychain/contract"
 	lookup "github.com/whyrusleeping/toychain/lookup"
 	state "github.com/whyrusleeping/toychain/state"
 	types "github.com/whyrusleeping/toychain/types"
 
-	bserv "github.com/ipfs/go-ipfs/blockservice"
-	bitswap "github.com/ipfs/go-ipfs/exchange/bitswap"
-	hamt "gx/ipfs/QmdBXcN47jVwKLwSyN9e9xYVZ7WcAWgQ5N4cmNw7nzWq2q/go-hamt-ipld"
+	hamt "github.com/ipfs/go-hamt-ipld"
 
-	"gx/ipfs/QmVmDhyTTUcQXFD1rRQ64fGLMSAoaQvNH3hwuaCFAPq2hy/errors"
+	bitswap "github.com/ipfs/go-bitswap"
+	bserv "github.com/ipfs/go-blockservice"
+
+	"errors"
 )
 
 var log = logging.Logger("core")

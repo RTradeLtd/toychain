@@ -13,36 +13,41 @@ import (
 	"os/signal"
 	"strings"
 
-	ma "gx/ipfs/QmWWQ2Txc2c6tqjsBpzg5Ar652cHPGNsQQp2SejkNmkUMb/go-multiaddr"
+	ma "github.com/multiformats/go-multiaddr"
 	//peer "gx/ipfs/QmWNY7dV54ZDYmTA1ykVdwNCqC11mpU4zSUp6XDpLTH9eG/go-libp2p-peer"
-	ipfsaddr "gx/ipfs/QmQViVWBHbU6HmYjXcdNq7tVASCNgdg64ZGcauuDkLCivW/go-ipfs-addr"
-	swarm "gx/ipfs/QmSwZMWwFZSUpe5muU2xgTUwppH24KfMwdPXiwbEp2c6G5/go-libp2p-swarm"
-	bstore "gx/ipfs/QmTVDM4LCSUMFNQzbDLL9zQwp8usE6QHymFdh3h8vL9v6b/go-ipfs-blockstore"
-	pstore "gx/ipfs/QmXauCuJzmzapetmC6W4TuDJLL1yFFrVzSHoWv8YdbmnxH/go-libp2p-peerstore"
-	none "gx/ipfs/QmZRcGYvxdauCd7hHnMYLYqcZRaDjv24c7eUNyJojAcdBb/go-ipfs-routing/none"
-	crypto "gx/ipfs/QmaPbCnUMBohSGo3KnxEa2bHqyJVVeEEcwtqJAYxerieBo/go-libp2p-crypto"
-	"gx/ipfs/QmcZfnkapfECQGcLZaf9B79NRg7cRa9EnZh4LSbkCzwNvY/go-cid"
+	"github.com/ipfs/go-cid"
+
+	crypto "github.com/libp2p/go-libp2p-crypto"
+
+	none "github.com/ipfs/go-ipfs-routing/none"
+
+	pstore "github.com/libp2p/go-libp2p-peerstore"
+
+	bstore "github.com/ipfs/go-ipfs-blockstore"
+
+	swarm "github.com/libp2p/go-libp2p-swarm"
+
+	ipfsaddr "github.com/ipfs/go-ipfs-addr"
 
 	contract "github.com/whyrusleeping/toychain/contract"
 	core "github.com/whyrusleeping/toychain/core"
 	libp2p "github.com/whyrusleeping/toychain/libp2p"
 	types "github.com/whyrusleeping/toychain/types"
 
-	"gx/ipfs/QmSFihvoND3eDaAYRCeLgLPt62yCPgMZs1NSZmKFEtJQQw/go-libp2p-floodsub"
+	dssync "github.com/ipfs/go-datastore/sync"
 
-	ds "gx/ipfs/QmPpegoMqhAEqjncrzArm7KVWAkCm78rqL2DPuNjhPrshg/go-datastore"
-	dssync "gx/ipfs/QmPpegoMqhAEqjncrzArm7KVWAkCm78rqL2DPuNjhPrshg/go-datastore/sync"
+	ds "github.com/ipfs/go-datastore"
 
-	bserv "github.com/ipfs/go-ipfs/blockservice"
-	bitswap "github.com/ipfs/go-ipfs/exchange/bitswap"
-	bsnet "github.com/ipfs/go-ipfs/exchange/bitswap/network"
-	dag "github.com/ipfs/go-ipfs/merkledag"
-	path "github.com/ipfs/go-ipfs/path"
-	resolver "github.com/ipfs/go-ipfs/path/resolver"
+	bitswap "github.com/ipfs/go-bitswap"
+	bsnet "github.com/ipfs/go-bitswap/network"
+	bserv "github.com/ipfs/go-blockservice"
+	dag "github.com/ipfs/go-merkledag"
+	path "github.com/ipfs/go-path"
+	resolver "github.com/ipfs/go-path/resolver"
 
-	cmds "gx/ipfs/QmZ9hww8R3FKrDRCYPxhN13m6XgjPDpaSvdUfisPvERzXz/go-ipfs-cmds"
-	cmdhttp "gx/ipfs/QmZ9hww8R3FKrDRCYPxhN13m6XgjPDpaSvdUfisPvERzXz/go-ipfs-cmds/http"
-	cmdkit "gx/ipfs/QmceUdzxkimdYsgtX733uNgzf1DLHyBKN6ehGSp85ayppM/go-ipfs-cmdkit"
+	cmdkit "github.com/ipfs/go-ipfs-cmdkit"
+	cmds "github.com/ipfs/go-ipfs-cmds"
+	cmdhttp "github.com/ipfs/go-ipfs-cmds/http"
 )
 
 var RootCmd = &cmds.Command{

@@ -4,20 +4,22 @@ import (
 	"context"
 	"crypto/rand"
 
-	yamux "gx/ipfs/QmNWCEvi7bPRcvqAV8AKLGVNoQdArWi7NJayka2SM4XtRe/go-smux-yamux"
-	bhost "gx/ipfs/QmNh1kGFFdsPu79KNSaL4NUKUPb4Eiz4KHdMtFY6664RDp/go-libp2p/p2p/host/basic"
-	host "gx/ipfs/QmNmJZL7FQySMtE2BQuLMuZg2EB2CLEunJJUSVSc9YnnbV/go-libp2p-host"
-	swarm "gx/ipfs/QmSwZMWwFZSUpe5muU2xgTUwppH24KfMwdPXiwbEp2c6G5/go-libp2p-swarm"
-	msmux "gx/ipfs/QmVniQJkdzLZaZwzwMdd3dJTvWiJ1DQEkreVy6hs6h7Vk5/go-smux-multistream"
-	transport "gx/ipfs/QmVxtCwKFMmwcjhQXsGj6m4JAW7nGb9hRoErH9jpgqcLxA/go-libp2p-transport"
-	ma "gx/ipfs/QmWWQ2Txc2c6tqjsBpzg5Ar652cHPGNsQQp2SejkNmkUMb/go-multiaddr"
-	pstore "gx/ipfs/QmXauCuJzmzapetmC6W4TuDJLL1yFFrVzSHoWv8YdbmnxH/go-libp2p-peerstore"
-	mux "gx/ipfs/QmY9JXR3FupnYAYJWK9aMr9bCpqWKcToQ1tz8DVGTrHpHw/go-stream-muxer"
-	pnet "gx/ipfs/QmZPrWxuM8GHr4cGKbyF5CCT11sFUP9hgqpeUHALvx2nUr/go-libp2p-interface-pnet"
-	peer "gx/ipfs/QmZoWKhxUmZ2seW4BzX6fJkNR8hh9PsGModr7q171yq2SS/go-libp2p-peer"
-	crypto "gx/ipfs/QmaPbCnUMBohSGo3KnxEa2bHqyJVVeEEcwtqJAYxerieBo/go-libp2p-crypto"
-	mplex "gx/ipfs/Qmc14vuKyGqX27RvBhekYytxSFJpaEgQVuVJgKSm69MEix/go-smux-multiplex"
-	metrics "gx/ipfs/QmdeBtQGXjSt7cb97nx9JyLHHv5va2LyEAue7Q5tDFzpLy/go-libp2p-metrics"
+	host "github.com/libp2p/go-libp2p-host"
+	pnet "github.com/libp2p/go-libp2p-interface-pnet"
+	peer "github.com/libp2p/go-libp2p-peer"
+	pstore "github.com/libp2p/go-libp2p-peerstore"
+	swarm "github.com/libp2p/go-libp2p-swarm"
+	transport "github.com/libp2p/go-libp2p-transport"
+	bhost "github.com/libp2p/go-libp2p/p2p/host/basic"
+	mux "github.com/libp2p/go-stream-muxer"
+	ma "github.com/multiformats/go-multiaddr"
+	msmux "github.com/whyrusleeping/go-smux-multistream"
+
+	crypto "github.com/libp2p/go-libp2p-crypto"
+	metrics "github.com/libp2p/go-libp2p-metrics"
+	mplex "github.com/whyrusleeping/go-smux-multiplex"
+
+	yamux "github.com/whyrusleeping/go-smux-yamux"
 )
 
 type Config struct {
@@ -56,7 +58,6 @@ func Construct(ctx context.Context, cfg *Config) (host.Host, error) {
 
 	ps.AddPrivKey(pid, cfg.PeerKey)
 	ps.AddPubKey(pid, cfg.PeerKey.GetPublic())
-
 	swrm, err := swarm.NewSwarmWithProtector(ctx, cfg.ListenAddrs, pid, ps, cfg.Protector, cfg.Muxer, cfg.Reporter)
 	if err != nil {
 		return nil, err

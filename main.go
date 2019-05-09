@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"os"
 
+	logging "github.com/ipfs/go-log"
 	commands "github.com/whyrusleeping/toychain/commands"
-	logging "gx/ipfs/QmRb5jh8z2E8hMGN2tkvs1yHynUanqnZ3UeKwgN1i9P1F8/go-log"
 
-	cmds "gx/ipfs/QmZ9hww8R3FKrDRCYPxhN13m6XgjPDpaSvdUfisPvERzXz/go-ipfs-cmds"
-	cmdcli "gx/ipfs/QmZ9hww8R3FKrDRCYPxhN13m6XgjPDpaSvdUfisPvERzXz/go-ipfs-cmds/cli"
-	cmdhttp "gx/ipfs/QmZ9hww8R3FKrDRCYPxhN13m6XgjPDpaSvdUfisPvERzXz/go-ipfs-cmds/http"
-	cmdkit "gx/ipfs/QmceUdzxkimdYsgtX733uNgzf1DLHyBKN6ehGSp85ayppM/go-ipfs-cmdkit"
+	cmdkit "github.com/ipfs/go-ipfs-cmdkit"
+	cmds "github.com/ipfs/go-ipfs-cmds"
+	cmdcli "github.com/ipfs/go-ipfs-cmds/cli"
+	cmdhttp "github.com/ipfs/go-ipfs-cmds/http"
 )
 
 var log = logging.Logger("toychain")

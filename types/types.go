@@ -6,11 +6,15 @@ import (
 	"fmt"
 	"math/big"
 
-	atlas "gx/ipfs/QmSaDQWMxJBMtzQWnGoDppbwSEbHv4aJcD86CMSdszPU4L/refmt/obj/atlas"
-	cbor "gx/ipfs/QmZpue627xQuNGXn7xHieSjSZ8N4jot6oBHwe9XTn3e4NU/go-ipld-cbor"
-	mh "gx/ipfs/QmZyZDi491cCNTLfAhwcaDii2Kg4pwKRkhqQzURGDvY6ua/go-multihash"
-	"gx/ipfs/QmcZfnkapfECQGcLZaf9B79NRg7cRa9EnZh4LSbkCzwNvY/go-cid"
-	node "gx/ipfs/Qme5bWv7wtjUNGsK2BNGVUFPKiuxWrsqrtvYwCLRw8YFES/go-ipld-format"
+	atlas "github.com/polydawn/refmt/obj/atlas"
+
+	cbor "github.com/ipfs/go-ipld-cbor"
+
+	mh "github.com/multiformats/go-multihash"
+
+	"github.com/ipfs/go-cid"
+
+	node "github.com/ipfs/go-ipld-format"
 )
 
 func init() {
@@ -84,7 +88,7 @@ func (b *Block) Score() uint64 {
 	return b.Height
 }
 
-func (b *Block) Cid() *cid.Cid {
+func (b *Block) Cid() cid.Cid {
 	return b.ToNode().Cid()
 }
 

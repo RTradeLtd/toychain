@@ -6,14 +6,16 @@ import (
 	"math/big"
 	"reflect"
 
+	"errors"
+
 	types "github.com/whyrusleeping/toychain/types"
-	"gx/ipfs/QmVmDhyTTUcQXFD1rRQ64fGLMSAoaQvNH3hwuaCFAPq2hy/errors"
 
 	// TODO: no usage of this package directly
-	hamt "gx/ipfs/QmdBXcN47jVwKLwSyN9e9xYVZ7WcAWgQ5N4cmNw7nzWq2q/go-hamt-ipld"
+	hamt "github.com/ipfs/go-hamt-ipld"
 
-	mh "gx/ipfs/QmZyZDi491cCNTLfAhwcaDii2Kg4pwKRkhqQzURGDvY6ua/go-multihash"
-	cid "gx/ipfs/QmcZfnkapfECQGcLZaf9B79NRg7cRa9EnZh4LSbkCzwNvY/go-cid"
+	cid "github.com/ipfs/go-cid"
+
+	mh "github.com/multiformats/go-multihash"
 )
 
 var ToychainContractCid = identCid("toychain")

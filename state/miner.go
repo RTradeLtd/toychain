@@ -10,7 +10,7 @@ import (
 	contract "github.com/whyrusleeping/toychain/contract"
 	types "github.com/whyrusleeping/toychain/types"
 
-	hamt "gx/ipfs/QmdBXcN47jVwKLwSyN9e9xYVZ7WcAWgQ5N4cmNw7nzWq2q/go-hamt-ipld"
+	hamt "github.com/ipfs/go-hamt-ipld"
 )
 
 var rr = rand.New(rand.NewSource(time.Now().UnixNano()))

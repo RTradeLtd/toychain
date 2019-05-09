@@ -1,7 +1,7 @@
 package types
 
 import (
-	"gx/ipfs/QmcZfnkapfECQGcLZaf9B79NRg7cRa9EnZh4LSbkCzwNvY/go-cid"
+	"github.com/ipfs/go-cid"
 )
 
 type TransactionPool struct {

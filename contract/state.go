@@ -5,11 +5,13 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"gx/ipfs/QmVmDhyTTUcQXFD1rRQ64fGLMSAoaQvNH3hwuaCFAPq2hy/errors"
+	"errors"
+
+	hamt "github.com/ipfs/go-hamt-ipld"
+
+	cid "github.com/ipfs/go-cid"
 
 	types "github.com/whyrusleeping/toychain/types"
-	cid "gx/ipfs/QmcZfnkapfECQGcLZaf9B79NRg7cRa9EnZh4LSbkCzwNvY/go-cid"
-	hamt "gx/ipfs/QmdBXcN47jVwKLwSyN9e9xYVZ7WcAWgQ5N4cmNw7nzWq2q/go-hamt-ipld"
 )
 
 func LoadState(ctx context.Context, cs *hamt.CborIpldStore, c *cid.Cid) (*State, error) {

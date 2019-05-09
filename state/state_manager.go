@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"time"
 
-	"gx/ipfs/QmZoWKhxUmZ2seW4BzX6fJkNR8hh9PsGModr7q171yq2SS/go-libp2p-peer"
-	"gx/ipfs/QmcZfnkapfECQGcLZaf9B79NRg7cRa9EnZh4LSbkCzwNvY/go-cid"
+	"github.com/ipfs/go-cid"
+	peer "github.com/libp2p/go-libp2p-peer"
 
 	pubsub "github.com/briantigerchow/pubsub"
-	logging "gx/ipfs/QmRb5jh8z2E8hMGN2tkvs1yHynUanqnZ3UeKwgN1i9P1F8/go-log"
-	hamt "gx/ipfs/QmdBXcN47jVwKLwSyN9e9xYVZ7WcAWgQ5N4cmNw7nzWq2q/go-hamt-ipld"
-	ipld "gx/ipfs/Qme5bWv7wtjUNGsK2BNGVUFPKiuxWrsqrtvYwCLRw8YFES/go-ipld-format"
+	hamt "github.com/ipfs/go-hamt-ipld"
+	ipld "github.com/ipfs/go-ipld-format"
+	logging "github.com/ipfs/go-log"
 
 	contract "github.com/whyrusleeping/toychain/contract"
 	types "github.com/whyrusleeping/toychain/types"
