@@ -13,8 +13,8 @@ import (
 	ipld "github.com/ipfs/go-ipld-format"
 	logging "github.com/ipfs/go-log"
 
-	contract "github.com/whyrusleeping/toychain/contract"
-	types "github.com/whyrusleeping/toychain/types"
+	contract "github.com/RTradeLtd/toychain/contract"
+	types "github.com/RTradeLtd/toychain/types"
 )
 
 var log = logging.Logger("state")

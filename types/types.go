@@ -188,10 +188,10 @@ func (tx *Transaction) Marshal() ([]byte, error) {
 
 // TODO: we could control creation of transaction instances to guarantee this
 // never errors. Pretty annoying to do though
-func (tx *Transaction) Cid() (*cid.Cid, error) {
+func (tx *Transaction) Cid() (cid.Cid, error) {
 	obj, err := cbor.WrapObject(tx, mh.SHA2_256, -1)
 	if err != nil {
-		return nil, err
+		return cid.Cid{}, err
 	}
 
 	return obj.Cid(), nil

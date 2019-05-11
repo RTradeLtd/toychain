@@ -11,10 +11,10 @@ import (
 
 	host "github.com/libp2p/go-libp2p-host"
 	protocol "github.com/libp2p/go-libp2p-protocol"
-	contract "github.com/whyrusleeping/toychain/contract"
-	lookup "github.com/whyrusleeping/toychain/lookup"
-	state "github.com/whyrusleeping/toychain/state"
-	types "github.com/whyrusleeping/toychain/types"
+	contract "github.com/RTradeLtd/toychain/contract"
+	lookup "github.com/RTradeLtd/toychain/lookup"
+	state "github.com/RTradeLtd/toychain/state"
+	types "github.com/RTradeLtd/toychain/types"
 
 	hamt "github.com/ipfs/go-hamt-ipld"
 

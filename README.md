@@ -1,3 +1,3 @@
 # TOYCHAIN
 
-This is a modified version of [whyrusleeping/toychain](https://github.com/whyrusleeping/toychain) to use go modules
+This is a modified version of [RTradeLtd/toychain](https://github.com/RTradeLtd/toychain) to use go modules

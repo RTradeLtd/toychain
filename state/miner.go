@@ -7,8 +7,8 @@ import (
 	"math/rand"
 	"time"
 
-	contract "github.com/whyrusleeping/toychain/contract"
-	types "github.com/whyrusleeping/toychain/types"
+	contract "github.com/RTradeLtd/toychain/contract"
+	types "github.com/RTradeLtd/toychain/types"
 
 	hamt "github.com/ipfs/go-hamt-ipld"
 )

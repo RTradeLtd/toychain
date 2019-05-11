@@ -12,7 +12,7 @@ import (
 	floodsub "github.com/libp2p/go-libp2p-pubsub"
 
 	pubsub "github.com/briantigerchow/pubsub"
-	types "github.com/whyrusleeping/toychain/types"
+	types "github.com/RTradeLtd/toychain/types"
 )
 
 var TchLookupTopic = "/tch/lookup/1.0.0"

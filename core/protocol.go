@@ -10,7 +10,7 @@ import (
 	net "github.com/libp2p/go-libp2p-net"
 	peer "github.com/libp2p/go-libp2p-peer"
 
-	types "github.com/whyrusleeping/toychain/types"
+	types "github.com/RTradeLtd/toychain/types"
 )
 
 var TxsTopic = "/tch/tx"

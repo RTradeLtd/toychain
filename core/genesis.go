@@ -5,8 +5,8 @@ import (
 	"math/big"
 
 	hamt "github.com/ipfs/go-hamt-ipld"
-	contract "github.com/whyrusleeping/toychain/contract"
-	types "github.com/whyrusleeping/toychain/types"
+	contract "github.com/RTradeLtd/toychain/contract"
+	types "github.com/RTradeLtd/toychain/types"
 )
 
 var InitialNetworkTokens = big.NewInt(2000000000)

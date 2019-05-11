@@ -13,8 +13,9 @@ import (
 	"os/signal"
 	"strings"
 
+	ipfslite "github.com/hsanjuan/ipfs-lite"
 	ma "github.com/multiformats/go-multiaddr"
-	//peer "gx/ipfs/QmWNY7dV54ZDYmTA1ykVdwNCqC11mpU4zSUp6XDpLTH9eG/go-libp2p-peer"
+
 	"github.com/ipfs/go-cid"
 
 	crypto "github.com/libp2p/go-libp2p-crypto"
@@ -29,10 +30,9 @@ import (
 
 	ipfsaddr "github.com/ipfs/go-ipfs-addr"
 
-	contract "github.com/whyrusleeping/toychain/contract"
-	core "github.com/whyrusleeping/toychain/core"
-	libp2p "github.com/whyrusleeping/toychain/libp2p"
-	types "github.com/whyrusleeping/toychain/types"
+	contract "github.com/RTradeLtd/toychain/contract"
+	core "github.com/RTradeLtd/toychain/core"
+	types "github.com/RTradeLtd/toychain/types"
 
 	dssync "github.com/ipfs/go-datastore/sync"
 
@@ -96,21 +96,12 @@ func daemonRun(req *cmds.Request, re cmds.ResponseEmitter, env cmds.Environment)
 	if err != nil {
 		panic(err)
 	}
-
-	p2pcfg := libp2p.DefaultConfig()
 	p2pcfg.PeerKey = priv
 	laddr, err := ma.NewMultiaddr(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d", 1000+(seed%20000)))
 	if err != nil {
 		panic(err)
 	}
-
-	p2pcfg.ListenAddrs = []ma.Multiaddr{laddr}
-
-	// set up networking
-	h, err := libp2p.Construct(context.Background(), p2pcfg)
-	if err != nil {
-		panic(err)
-	}
+	h, dht, err := ipfslite.SetupLibp2p(ctx, priv, nil, []ma.MultiAddr{laddr})
 
 	fsub, err := floodsub.NewFloodSub(context.Background(), h)
 	if err != nil {

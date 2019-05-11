@@ -6,7 +6,7 @@ import (
 	"os"
 
 	logging "github.com/ipfs/go-log"
-	commands "github.com/whyrusleeping/toychain/commands"
+	commands "github.com/RTradeLtd/toychain/commands"
 
 	cmdkit "github.com/ipfs/go-ipfs-cmdkit"
 	cmds "github.com/ipfs/go-ipfs-cmds"
